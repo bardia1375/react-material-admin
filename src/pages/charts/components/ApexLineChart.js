@@ -5,11 +5,11 @@ import { useTheme } from "@material-ui/styles";
 const series = [
   {
     name: "series1",
-    data: [31, 40, 28, 51, 42, 109, 100],
+    data: [31, 40, 28, 51, 42, 200, 160],
   },
   {
     name: "series2",
-    data: [11, 32, 45, 32, 34, 52, 41],
+    data: [11, 32, 45, 32, 34, 52, 90],
   },
 ];
 

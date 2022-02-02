@@ -5,7 +5,7 @@ import {
   Select,
   OutlinedInput,
   MenuItem,
-  Button
+  Button,
 } from "@material-ui/core";
 import { useTheme } from "@material-ui/styles";
 import {
@@ -33,6 +33,8 @@ import { Typography } from "../../components/Wrappers";
 import Dot from "../../components/Sidebar/components/Dot";
 import Table from "./components/Table/Table";
 import BigStat from "./components/BigStat/BigStat";
+import ApexLineChart from "../charts/components/ApexLineChart";
+import User from "../User/User";
 
 const mainChartData = getMainChartData();
 const PieChartData = [
@@ -51,13 +53,14 @@ export default function Dashboard(props) {
 
   return (
     <>
-      <PageTitle title="Dashboard" button={<Button
-      variant="contained"
-      size="medium"
-      color="secondary"
-    >
-        Latest Reports
-    </Button>} />
+      <PageTitle
+        title="داشبورد"
+        button={
+          <Button variant="contained" size="medium" color="secondary">
+            Latest Reports
+          </Button>
+        }
+      />
       <Grid container spacing={4}>
         <Grid item lg={3} md={4} sm={6} xs={12}>
           <Widget
@@ -69,33 +72,34 @@ export default function Dashboard(props) {
             <div className={classes.visitsNumberContainer}>
               <Grid container item alignItems={"center"}>
                 <Grid item xs={6}>
-              <Typography size="xl" weight="medium" noWrap>
-                12, 678
-              </Typography>
+                  <Typography size="xl" weight="medium" noWrap>
+                    12, 678
+                  </Typography>
                 </Grid>
                 <Grid item xs={6}>
-              <LineChart
-                width={100}
-                height={30}
-                data={[
-                  { value: 10 },
-                  { value: 15 },
-                  { value: 10 },
-                  { value: 17 },
-                  { value: 18 },
-                ]}
-              >
-                <Line
-                  type="natural"
-                  dataKey="value"
-                  stroke={theme.palette.success.main}
-                  strokeWidth={2}
-                  dot={false}
-                />
-              </LineChart>
+                  <LineChart
+                    width={100}
+                    height={30}
+                    data={[
+                      { value: 10 },
+                      { value: 15 },
+                      { value: 10 },
+                      { value: 17 },
+                      { value: 18 },
+                    ]}
+                  >
+                    <Line
+                      type="natural"
+                      dataKey="value"
+                      stroke={theme.palette.success.main}
+                      strokeWidth={2}
+                      dot={false}
+                    />
+                  </LineChart>
                 </Grid>
               </Grid>
             </div>
+
             <Grid
               container
               direction="row"
@@ -294,7 +298,9 @@ export default function Dashboard(props) {
                   {PieChartData.map(({ name, value, color }, index) => (
                     <div key={color} className={classes.legendItemContainer}>
                       <Dot color={color} />
-                      <Typography style={{ whiteSpace: "nowrap", fontSize: 12 }} >
+                      <Typography
+                        style={{ whiteSpace: "nowrap", fontSize: 12 }}
+                      >
                         &nbsp;{name}&nbsp;
                       </Typography>
                       <Typography color="text" colorBrightness="secondary">
@@ -341,7 +347,7 @@ export default function Dashboard(props) {
                 </div>
                 <Select
                   value={mainChartState}
-                  onChange={e => setMainChartState(e.target.value)}
+                  onChange={(e) => setMainChartState(e.target.value)}
                   input={
                     <OutlinedInput
                       labelWidth={0}
@@ -372,7 +378,7 @@ export default function Dashboard(props) {
                   tickLine={false}
                 />
                 <XAxis
-                  tickFormatter={i => i + 1}
+                  tickFormatter={(i) => i + 1}
                   tick={{ fill: theme.palette.text.hint + "80", fontSize: 14 }}
                   stroke={theme.palette.text.hint + "80"}
                   tickLine={false}
@@ -407,7 +413,10 @@ export default function Dashboard(props) {
             </ResponsiveContainer>
           </Widget>
         </Grid>
-        {mock.bigStat.map(stat => (
+        <Grid item xs={12}>
+          <User />
+        </Grid>
+        {mock.bigStat.map((stat) => (
           <Grid item md={4} sm={6} xs={12} key={stat.product}>
             <BigStat {...stat} />
           </Grid>
@@ -420,6 +429,12 @@ export default function Dashboard(props) {
             bodyClass={classes.tableWidget}
           >
             <Table data={mock.table} />
+          </Widget>
+        </Grid>
+
+        <Grid item xs={12} md={12}>
+          <Widget title="Apex Line Chart" upperTitle noBodyPadding fullWidth>
+            <ApexLineChart />
           </Widget>
         </Grid>
       </Grid>

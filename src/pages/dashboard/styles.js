@@ -113,7 +113,7 @@ export default makeStyles(theme => ({
   },
   mainChartLegentElement: {
     fontSize: "18px !important",
-    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
   },
   success: {
     backgroundColor: theme.palette.success.main,

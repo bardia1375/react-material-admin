@@ -1,0 +1,60 @@
+.newTransaction {
+    flex: 2;
+    -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+    padding: 20px;
+  }
+  
+  .newTransactionTitle {
+    font-size: 22px;
+    font-weight: 600;
+  }
+  
+  .newTransactionTable{
+    width: 100%;
+    border-spacing: 20px;
+  }
+  
+  .newTransactionTh{
+    text-align: right;
+  }
+  
+  .newTransactionUser{
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+  }
+  
+  .newTransactionImg {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 10px;
+  }
+  
+  .newTransactionDate,.newTransactionAmount{
+    font-weight: 300;
+  }
+  
+  .newTransactionButton {
+    padding: 5px 7px;
+    border: none;
+    border-radius: 10px;
+  }
+  
+  .newTransactionButton.Approved{
+      background-color: #e5faf2;
+      color: #3bb077;
+  }
+  .newTransactionButton.Declined{
+      background-color: #fff0f1;
+      color: #d95087;
+  
+  }
+  .newTransactionButton.Pending{
+      background-color: #ebf1fe;
+      color: #2a7ade;
+  
+  }
+  

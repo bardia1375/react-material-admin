@@ -10,6 +10,9 @@ import {
   LibraryBooks as LibraryIcon,
   HelpOutline as FAQIcon,
   ArrowBack as ArrowBackIcon,
+  LocationCity,
+  TableChart,
+  Accessibility,
 } from "@material-ui/icons";
 import { useTheme } from "@material-ui/styles";
 import { withRouter } from "react-router-dom";
@@ -28,25 +31,44 @@ import {
   useLayoutDispatch,
   toggleSidebar,
 } from "../../context/LayoutContext";
+import IndustryList from "../../pages/IndustryList/IndustryList";
+import Product from "../../pages/Product/ProductList";
 
 const structure = [
-  { id: 0, label: "Dashboard", link: "/app/dashboard", icon: <HomeIcon /> },
+  { id: -4, label: "کاربران", link: "/app/user", icon: <Accessibility /> },
+
+  { id: -3, label: "صنایع", link: "/app/industryList", icon: <LocationCity /> },
+  {
+    id: -2,
+    label: "زیرصنایع",
+    link: "/app/categoryList",
+    icon: <LocationCity />,
+  },
+  {
+    id: -1,
+    label: "کارخانجات",
+    link: "/app/companiesList",
+    icon: <LocationCity />,
+  },
+  { id: -5, label: "محصولات", link: "/app/products", icon: <TableChart /> },
+
+  { id: 0, label: "داشبورد" , link:"/app/dashboard", icon: <HomeIcon /> },
   {
     id: 1,
-    label: "Typography",
+    label: "تایپوگرافی",
     link: "/app/typography",
     icon: <TypographyIcon />,
   },
-  { id: 2, label: "Tables", link: "/app/tables", icon: <TableIcon /> },
+  { id: 2, label: "جداول", link: "/app/tables", icon: <TableIcon /> },
   {
     id: 3,
-    label: "Notifications",
+    label: "پیغام ها",
     link: "/app/notifications",
     icon: <NotificationsIcon />,
   },
   {
     id: 4,
-    label: "UI Elements",
+    label: "UI عناصر",
     link: "/app/ui",
     icon: <UIElementsIcon />,
     children: [
@@ -57,9 +79,24 @@ const structure = [
   },
   { id: 5, type: "divider" },
   { id: 6, type: "title", label: "HELP" },
-  { id: 7, label: "Library", link: "https://flatlogic.com/templates", icon: <LibraryIcon /> },
-  { id: 8, label: "Support", link: "https://flatlogic.com/forum", icon: <SupportIcon /> },
-  { id: 9, label: "FAQ", link: "https://flatlogic.com/forum", icon: <FAQIcon /> },
+  {
+    id: 7,
+    label: "کتابخانه",
+    link: "https://flatlogic.com/templates",
+    icon: <LibraryIcon />,
+  },
+  {
+    id: 8,
+    label: "پشتیبانی",
+    link: "https://flatlogic.com/forum",
+    icon: <SupportIcon />,
+  },
+  {
+    id: 9,
+    label: "پرسش و پاسخ",
+    link: "https://flatlogic.com/forum",
+    icon: <FAQIcon />,
+  },
   { id: 10, type: "divider" },
   { id: 11, type: "title", label: "PROJECTS" },
   {
@@ -93,7 +130,7 @@ function Sidebar({ location }) {
   // local
   var [isPermanent, setPermanent] = useState(true);
 
-  useEffect(function() {
+  useEffect(function () {
     window.addEventListener("resize", handleWindowWidthChange);
     handleWindowWidthChange();
     return function cleanup() {
@@ -127,7 +164,7 @@ function Sidebar({ location }) {
         </IconButton>
       </div>
       <List className={classes.sidebarList}>
-        {structure.map(link => (
+        {structure.map((link) => (
           <SidebarLink
             key={link.id}
             location={location}

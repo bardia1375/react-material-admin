@@ -91,16 +91,19 @@ export default function Charts(props) {
         </Button>
       } />
       <Grid container spacing={4}>
+
         <Grid item xs={12} md={6}>
           <Widget title="Apex Line Chart" upperTitle noBodyPadding>
             <ApexLineChart />
           </Widget>
         </Grid>
+
         <Grid item xs={12} md={6}>
           <Widget title="Apex Heatmap" upperTitle noBodyPadding>
             <ApexHeatmap />
           </Widget>
         </Grid>
+
         <Grid item xs={12} md={8}>
           <Widget title="Simple Line Chart" noBodyPadding upperTitle>
             <ResponsiveContainer width="100%" height={350}>
@@ -135,6 +138,7 @@ export default function Charts(props) {
             </ResponsiveContainer>
           </Widget>
         </Grid>
+
         <Grid item xs={12} md={4}>
           <Widget title="Pie Chart with Tooltips" noBodyPadding upperTitle>
             <ResponsiveContainer width="100%" height={300}>
@@ -153,6 +157,7 @@ export default function Charts(props) {
             </ResponsiveContainer>
           </Widget>
         </Grid>
+        
       </Grid>
     </>
   );

@@ -17,13 +17,13 @@ export default makeStyles(theme => ({
     backgroundColor: theme.palette.background.light,
   },
   linkNested: {
-    paddingLeft: 0,
+    paddingRight: 0,
     "&:hover, &:focus": {
       backgroundColor: "#FFFFFF",
     },
   },
   linkIcon: {
-    marginRight: theme.spacing(1),
+    marginLeft: theme.spacing(1),
     color: theme.palette.text.secondary + "99",
     transition: theme.transitions.create("color"),
     width: 24,
@@ -46,10 +46,10 @@ export default makeStyles(theme => ({
     opacity: 0,
   },
   nestedList: {
-    paddingLeft: theme.spacing(2) + 30,
+    paddingRight: theme.spacing(2) + 30,
   },
   sectionTitle: {
-    marginLeft: theme.spacing(4.5),
+    marginRight: theme.spacing(4.5),
     marginTop: theme.spacing(2),
     marginBottom: theme.spacing(2),
   },

@@ -11,8 +11,11 @@ import Table from "../dashboard/components/Table/Table";
 // data
 import mock from "../dashboard/mock";
 
+export default function Tables() {
+
+  
 const datatableData = [
-  ["Joe James", "Example Inc.", "Yonkers", "NY"],
+  ["سید بردیا شمس", "Example Inc.", "Yonkers", "NY"],
   ["John Walsh", "Example Inc.", "Hartford", "CT"],
   ["Bob Herm", "Example Inc.", "Tampa", "FL"],
   ["James Houston", "Example Inc.", "Dallas", "TX"],
@@ -26,7 +29,7 @@ const datatableData = [
   ["Marciano Oihana", "Example Inc.", "Yonkers", "NY"],
   ["Brigid Ankur", "Example Inc.", "Dallas", "TX"],
   ["Anna Siranush", "Example Inc.", "Yonkers", "NY"],
-  ["Avram Sylva", "Example Inc.", "Hartford", "CT"],
+  ["Avram Sylva", "Example Inc.", "Hartford", "سلام"],
   ["Serafima Babatunde", "Example Inc.", "Tampa", "FL"],
   ["Gaston Festus", "Example Inc.", "Tampa", "FL"],
 ];
@@ -37,7 +40,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function Tables() {
+
   const classes = useStyles();
   return (
     <>
